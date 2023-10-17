@@ -1,0 +1,49 @@
+* Nixos install
+
+** Configuration.nix
+
+1. Open shell:
+#+begin_src bash
+nix-shell -p git
+#+end_src
+
+2. clone:
+#+begin_src
+git clone https://github.com/acnimda/nix-dotfiles.git
+#+end_src
+
+3. Move nix config:
+   #+begin_src bash
+ sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+
+
+   #+end_src
+
+4. Create a symlink:
+   #+begin_src bash
+sudo ln -s ~/nix-dotfiles/.config/nix/configuration.nix /etc/nixos/configuration.nix
+
+   #+end_src
+
+** i3
+1. create i3:
+   #+begin_src bash
+mkdir -p ~/.config/i3
+   #+end_src
+
+2. Create symlink:
+   #+begin_src bash
+ln -s ~/nix-dotfiles/.config/i3/config ~/.config/i3/config
+
+   #+end_src
+
+** Polybar
+1. Create polybar:
+   #+begin_src bash
+mkdir ~/.config/polybar
+   #+end_src
+2. Create symlink:
+   #+begin_src bash
+ln -s ~/nix-dotfiles/.config/polibar ~/.config/polybar
+
+   #+end_src
