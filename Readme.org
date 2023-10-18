@@ -15,35 +15,42 @@ git clone https://github.com/acnimda/nix-dotfiles.git
 3. Move nix config:
    #+begin_src bash
  sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
-
-
    #+end_src
 
 4. Create a symlink:
    #+begin_src bash
 sudo ln -s ~/nix-dotfiles/.config/nix/configuration.nix /etc/nixos/configuration.nix
-
    #+end_src
 
 ** i3
 1. create i3:
    #+begin_src bash
-mkdir -p ~/.config/i3
+mkdir ~/.config
    #+end_src
 
 2. Create symlink:
    #+begin_src bash
-ln -s ~/nix-dotfiles/.config/i3/config ~/.config/i3/config
-
+ln -s ~/nix-dotfiles/.config/i3 ~/.config/
    #+end_src
 
 ** Polybar
 1. Create polybar:
    #+begin_src bash
-mkdir ~/.config/polybar
+mkdir .config/polybar
    #+end_src
 2. Create symlink:
    #+begin_src bash
-ln -s ~/nix-dotfiles/.config/polibar ~/.config/polybar
+ln -s ~/nix-dotfiles/.config/polibar ~/.config/
 
    #+end_src
+
+
+* Rebuild
+#+begin_src bash
+sudo nixos-rebuild switch -v
+#+end_src
+
+make sure that the config is implemented reboot with =sudo=:
+#+begin_src bash
+sudo reboot
+#+end_src
