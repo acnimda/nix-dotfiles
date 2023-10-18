@@ -49,12 +49,13 @@ ln -s ~/nix-dotfiles/.config/polibar ~/.config/
 sudo nixos-rebuild switch -v
 #+end_src
 
-make sure that the config is implemented reboot with =sudo=:
-#+begin_src bash
-sudo reboot
-#+end_src
-
-** add password user
+*** add password user
 #+begin_src bash
 sudo passwd $username
+#+end_src
+make sure that the config is implemented reboot with =sudo=:
+
+** reboot
+#+begin_src bash
+sudo reboot
 #+end_src
