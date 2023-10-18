@@ -31,22 +31,22 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      #intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+  #nixpkgs.config.packageOverrides = pkgs: {
+  #  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  #};
+  #hardware.opengl = {
+  #  enable = true;
+  #  driSupport = true;
+  #  driSupport32Bit = true;
+  #  extraPackages = with pkgs; [
+  #    #intel-media-driver # LIBVA_DRIVER_NAME=iHD
+  #    vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+  #    vaapiVdpau
+  #    libvdpau-va-gl
+  #  ];
+  #};
 
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   programs.dconf.enable = true;
   programs.zsh.enable = true;
@@ -120,11 +120,11 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
-  services.thermald.enable = true;
-  services.tlp.enable = true;
-  services.auto-cpufreq.enable = true;
+  #services.thermald.enable = true;
+  #services.tlp.enable = true;
+  #services.auto-cpufreq.enable = true;
   
   powerManagement = {
     enable = true;
@@ -143,7 +143,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -157,12 +157,15 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
-    description = "Alex Crom";
+    description = "Alex";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
+
+  # Enable automatic login for the user.
+  services.getty.autologinUser ="alex";
 
   fonts.fonts = with pkgs; [
     nerdfonts
