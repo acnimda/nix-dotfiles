@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "arjen";
-  home.homeDirectory = "/home/arjen";
+  home.username = "alex";
+  home.homeDirectory = "/home/alex";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -68,7 +68,7 @@
     bat
     # sound and display 
     pavucontrol
-    mons
+    #mons
     lxappearance
     # networking
     networkmanager
@@ -82,7 +82,7 @@
     xsel
     xclip
     # Office
-    libreoffice
+    #libreoffice
     (makeDesktopItem {
       name = "org-protocol";
       exec = "emacsclient -- %u";
@@ -155,9 +155,9 @@
     enableZshIntegration = true;
   };
 
-  home.sessionVariables = rec {
-    OPENAI_API_KEY="$(cat ~/.config/openai/key)";
-  };
+ # home.sessionVariables = rec {
+ #   OPENAI_API_KEY="$(cat ~/.config/openai/key)";
+ # };
 
   services.picom = {
     enable = true;
