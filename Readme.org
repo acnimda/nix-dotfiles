@@ -41,11 +41,10 @@ mkdir .config/polybar
 2. Create symlink:
    #+begin_src bash
 ln -s ~/nix-dotfiles/.config/polibar ~/.config/
-
    #+end_src
 
 
-* Rebuild
+** Rebuild
 #+begin_src bash
 sudo nixos-rebuild switch -v
 #+end_src
@@ -53,4 +52,9 @@ sudo nixos-rebuild switch -v
 make sure that the config is implemented reboot with =sudo=:
 #+begin_src bash
 sudo reboot
+#+end_src
+
+** add password user
+#+begin_src bash
+sudo passwd $username
 #+end_src
