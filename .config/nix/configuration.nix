@@ -4,19 +4,13 @@
 
 { config, pkgs, ... }:
 
-# development vmware nixos test
 {
- imports = [ <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix> ];
-
-
-# production dell
-#{
-  #imports =
-  #  [
+  imports =
+    [
   #     <nixos-hardware/dell/xps/15-9570>
-  #    # Include the results of the hardware scan.
-  #    ./hardware-configuration.nix
-  #  ];
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
