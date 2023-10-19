@@ -22,6 +22,11 @@ git clone https://github.com/acnimda/nix-dotfiles.git
 sudo ln -s ~/nix-dotfiles/.config/nix/configuration.nix /etc/nixos/configuration.nix
    #+end_src
 
+5. Install home-manager:
+   #+begin_src bash
+ chmod +x ~/nix-dotfiles/scripts/install_home-manager.sh
+ ./~/nix-dotfiles/scripts/install_home-manager.sh
+   #+end_src
 ** i3
 1. create i3:
    #+begin_src bash
