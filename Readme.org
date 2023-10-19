@@ -23,6 +23,9 @@ sudo ln -s ~/nix-dotfiles/.config/nix/configuration.nix /etc/nixos/configuration
    #+end_src
 
 5. Install home-manager:
+   *Note:*
+   Run as user!
+   If you still use =git shell= =exit= first.
    #+begin_src bash
  chmod +x ~/nix-dotfiles/scripts/install_home-manager.sh
  ./~/nix-dotfiles/scripts/install_home-manager.sh
