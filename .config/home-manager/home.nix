@@ -94,10 +94,10 @@
   ];
   programs.git = {
     enable = true;
-    userName  = "Arjen Wiersma";
-    userEmail = "arjen@wiersma.org";
+    userName  = "acnimda";
+    userEmail = "acnimda@gmail.com";
     signing = {
-      key = "94026A70F61228C894456942BFA8EABC51AF1D65";
+      key = ""; # needs check which key
       signByDefault = true;
     };
   };

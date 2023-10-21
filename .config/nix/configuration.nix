@@ -23,7 +23,7 @@
   #boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "gordito"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = false; #true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -31,22 +31,22 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  #nixpkgs.config.packageOverrides = pkgs: {
-  #  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  #};
-  #hardware.opengl = {
-  #  enable = true;
-  #  driSupport = true;
-  #  driSupport32Bit = true;
-  #  extraPackages = with pkgs; [
-  #    #intel-media-driver # LIBVA_DRIVER_NAME=iHD
-  #    vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-  #    vaapiVdpau
-  #    libvdpau-va-gl
-  #  ];
-  #};
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = {
+    enable = false; #true;
+    driSupport = false; # true;
+    driSupport32Bit = false; # true;
+    extraPackages = with pkgs; [
+      #intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 
-  # hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = false;#true;
 
   programs.dconf.enable = true;
   programs.zsh.enable = true;
@@ -165,7 +165,7 @@
   };
 
   # Enable automatic login for the user.
-  services.getty.autologinUser ="alex";
+  #services.getty.autologinUser ="alex";
 
   fonts.fonts = with pkgs; [
     nerdfonts
